@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADD025AD0FE0004C7BED /* AppDelegate.swift */; };
 		A361ADD325AD0FE0004C7BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */; };
-		A361ADD525AD0FE0004C7BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADD425AD0FE0004C7BED /* ViewController.swift */; };
-		A361ADD825AD0FE0004C7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADD625AD0FE0004C7BED /* Main.storyboard */; };
 		A361ADDA25AD0FE0004C7BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A361ADD925AD0FE0004C7BED /* Assets.xcassets */; };
 		A361ADDD25AD0FE0004C7BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADDB25AD0FE0004C7BED /* LaunchScreen.storyboard */; };
+		A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */; };
+		A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A361ADCD25AD0FE0004C7BED /* SpeedTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A361ADD025AD0FE0004C7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A361ADD425AD0FE0004C7BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A361ADD725AD0FE0004C7BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A361ADD925AD0FE0004C7BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A361ADDC25AD0FE0004C7BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A361ADDE25AD0FE0004C7BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewController.swift; sourceTree = "<group>"; };
+		A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedTestViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,71 @@
 		A361ADCF25AD0FE0004C7BED /* SpeedTest */ = {
 			isa = PBXGroup;
 			children = (
-				A361ADD025AD0FE0004C7BED /* AppDelegate.swift */,
-				A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */,
-				A361ADD425AD0FE0004C7BED /* ViewController.swift */,
-				A361ADD625AD0FE0004C7BED /* Main.storyboard */,
-				A361ADD925AD0FE0004C7BED /* Assets.xcassets */,
-				A361ADDB25AD0FE0004C7BED /* LaunchScreen.storyboard */,
-				A361ADDE25AD0FE0004C7BED /* Info.plist */,
+				A361ADF125AD106D004C7BED /* App */,
+				A361ADEF25AD1060004C7BED /* Library */,
+				A361ADE525AD101A004C7BED /* Screens */,
 			);
 			path = SpeedTest;
+			sourceTree = "<group>";
+		};
+		A361ADE525AD101A004C7BED /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADF225AD1081004C7BED /* Launch */,
+				A361ADEA25AD102A004C7BED /* SpeedTest */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A361ADEA25AD102A004C7BED /* SpeedTest */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */,
+				A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */,
+			);
+			path = SpeedTest;
+			sourceTree = "<group>";
+		};
+		A361ADEF25AD1060004C7BED /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADF325AD1092004C7BED /* Resources */,
+				A361ADF025AD1066004C7BED /* Extensions */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A361ADF025AD1066004C7BED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A361ADF125AD106D004C7BED /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADD025AD0FE0004C7BED /* AppDelegate.swift */,
+				A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A361ADF225AD1081004C7BED /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADDB25AD0FE0004C7BED /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		A361ADF325AD1092004C7BED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADD925AD0FE0004C7BED /* Assets.xcassets */,
+				A361ADDE25AD0FE0004C7BED /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A361ADDD25AD0FE0004C7BED /* LaunchScreen.storyboard in Resources */,
+				A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */,
 				A361ADDA25AD0FE0004C7BED /* Assets.xcassets in Resources */,
-				A361ADD825AD0FE0004C7BED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A361ADD525AD0FE0004C7BED /* ViewController.swift in Sources */,
+				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
 				A361ADD325AD0FE0004C7BED /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +202,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A361ADD625AD0FE0004C7BED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A361ADD725AD0FE0004C7BED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A361ADDB25AD0FE0004C7BED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XBJV9DRMC3;
-				INFOPLIST_FILE = SpeedTest/Info.plist;
+				INFOPLIST_FILE = SpeedTest/Library/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = none.SpeedTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XBJV9DRMC3;
-				INFOPLIST_FILE = SpeedTest/Info.plist;
+				INFOPLIST_FILE = SpeedTest/Library/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = none.SpeedTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
