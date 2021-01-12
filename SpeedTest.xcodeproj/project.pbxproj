@@ -13,6 +13,11 @@
 		A361ADDD25AD0FE0004C7BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADDB25AD0FE0004C7BED /* LaunchScreen.storyboard */; };
 		A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */; };
 		A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */; };
+		A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADFB25AD1241004C7BED /* GradientView.swift */; };
+		A361AE0125AD141D004C7BED /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361AE0025AD141D004C7BED /* UIView+Extension.swift */; };
+		A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FC443E25AD169D0006F61A /* Colors.xcassets */; };
+		A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444225AD1A300006F61A /* UIImage+Extension.swift */; };
+		A3FC444725AD1D8F0006F61A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444625AD1D8F0006F61A /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		A361ADDE25AD0FE0004C7BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestViewController.swift; sourceTree = "<group>"; };
 		A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedTestViewController.storyboard; sourceTree = "<group>"; };
+		A361ADFB25AD1241004C7BED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		A361AE0025AD141D004C7BED /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A3FC443E25AD169D0006F61A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A3FC444225AD1A300006F61A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		A3FC444625AD1D8F0006F61A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 		A361ADEF25AD1060004C7BED /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A361ADF925AD1230004C7BED /* Views */,
 				A361ADF325AD1092004C7BED /* Resources */,
 				A361ADF025AD1066004C7BED /* Extensions */,
 			);
@@ -93,6 +104,8 @@
 		A361ADF025AD1066004C7BED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A361AE0025AD141D004C7BED /* UIView+Extension.swift */,
+				A3FC444225AD1A300006F61A /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -118,9 +131,35 @@
 			isa = PBXGroup;
 			children = (
 				A361ADD925AD0FE0004C7BED /* Assets.xcassets */,
+				A3FC443E25AD169D0006F61A /* Colors.xcassets */,
 				A361ADDE25AD0FE0004C7BED /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A361ADF925AD1230004C7BED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3FC444525AD1D850006F61A /* Rounded Button */,
+				A361ADFA25AD1236004C7BED /* Gradient */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A361ADFA25AD1236004C7BED /* Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				A361ADFB25AD1241004C7BED /* GradientView.swift */,
+			);
+			path = Gradient;
+			sourceTree = "<group>";
+		};
+		A3FC444525AD1D850006F61A /* Rounded Button */ = {
+			isa = PBXGroup;
+			children = (
+				A3FC444625AD1D8F0006F61A /* RoundedButton.swift */,
+			);
+			path = "Rounded Button";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A361ADDD25AD0FE0004C7BED /* LaunchScreen.storyboard in Resources */,
+				A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */,
 				A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */,
 				A361ADDA25AD0FE0004C7BED /* Assets.xcassets in Resources */,
 			);
@@ -195,6 +235,10 @@
 			files = (
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
+				A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */,
+				A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */,
+				A3FC444725AD1D8F0006F61A /* RoundedButton.swift in Sources */,
+				A361AE0125AD141D004C7BED /* UIView+Extension.swift in Sources */,
 				A361ADD325AD0FE0004C7BED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,21 +3,90 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Speed Test View Controller-->
         <scene sceneID="evs-ib-P83">
             <objects>
-                <viewController id="WxT-00-fe7" sceneMemberID="viewController">
+                <viewController id="WxT-00-fe7" customClass="SpeedTestViewController" customModule="SpeedTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lss-81-twN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="k4l-9U-mwQ">
+                                <rect key="frame" x="150" y="52" width="114.5" height="20.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Zq-3P-caE">
+                                        <rect key="frame" x="0.0" y="1.5" width="19" height="17"/>
+                                        <color key="tintColor" red="0.53333333333333333" green="0.60392156862745094" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <imageReference key="image" image="slider.vertical.3" catalog="system" symbolScale="medium"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="light"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPEEDTEST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Km-m2-RVe">
+                                        <rect key="frame" x="23" y="0.0" width="91.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.53333333333333333" green="0.60392156862745094" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="HJD-TB-yIJ">
+                                <rect key="frame" x="91" y="814" width="232" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0W8-UU-gki" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0W8-UU-gki" secondAttribute="height" multiplier="1:1" id="e3Z-cb-yiy"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yy-LM-zEq" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdn-ni-d2o" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="40" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6E7-U0-7rw"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-44-fBw" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                                <rect key="frame" x="138.5" y="629.5" width="137" height="136.5"/>
+                                <color key="backgroundColor" red="0.12941176470588234" green="0.20810529589999999" blue="0.26575750110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fS1-44-fBw" secondAttribute="height" multiplier="1:1" id="fUm-uA-xp6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ECX-Fh-HnI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fS1-44-fBw" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="Tnu-sB-oTd"/>
+                            <constraint firstItem="HJD-TB-yIJ" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="V8T-lA-SBI"/>
+                            <constraint firstItem="k4l-9U-mwQ" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="VfM-zV-S2S"/>
+                            <constraint firstItem="fS1-44-fBw" firstAttribute="width" secondItem="Lss-81-twN" secondAttribute="width" multiplier="0.33" id="ZES-KO-72v"/>
+                            <constraint firstItem="ECX-Fh-HnI" firstAttribute="bottom" secondItem="HJD-TB-yIJ" secondAttribute="bottom" constant="8" id="a3J-KQ-UXf"/>
+                            <constraint firstItem="k4l-9U-mwQ" firstAttribute="top" secondItem="ECX-Fh-HnI" secondAttribute="top" constant="8" id="daQ-oC-Fch"/>
+                            <constraint firstItem="HJD-TB-yIJ" firstAttribute="top" secondItem="fS1-44-fBw" secondAttribute="bottom" constant="48" id="iyk-fo-Uud"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkmarkButton" destination="0yy-LM-zEq" id="TDf-E3-6uC"/>
+                        <outlet property="octagonButton" destination="hdn-ni-d2o" id="bS7-dn-gJz"/>
+                        <outlet property="sliderButton" destination="0W8-UU-gki" id="9FZ-m3-zGQ"/>
+                        <outlet property="startTestButton" destination="fS1-44-fBw" id="REM-2I-HBR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcO-De-W6m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,6 +94,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="slider.vertical.3" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
