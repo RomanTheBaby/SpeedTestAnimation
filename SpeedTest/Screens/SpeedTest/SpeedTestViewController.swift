@@ -41,6 +41,7 @@ private extension SpeedTestViewController {
         setupStartButton()
         setupToolBarButtons()
         setupNetworkInfoStack()
+        setupSpeedTestViews()
     }
     
     func setupGradientView() {
@@ -74,6 +75,10 @@ private extension SpeedTestViewController {
     }
     
     func setupNetworkInfoStack() {
+        networkInfoStackView.arrangedSubviews.forEach {
+            $0.removeFromSuperview()
+        }
+        
         let chinaTelecomNetworkInfo = NetworkInfo(name: "China Telecom", networkType: .wifi)
         let chinaTelecomInfoView = NetworkInfoView.instantiateFromNib()
         chinaTelecomInfoView.backgroundColor = .clear
@@ -87,6 +92,31 @@ private extension SpeedTestViewController {
         jinTelecomInfoView.translatesAutoresizingMaskIntoConstraints = false
         jinTelecomInfoView.render(jinNetworkInfo)
         networkInfoStackView.addArrangedSubview(jinTelecomInfoView)
+    }
+    
+    func setupSpeedTestViews() {
+        let downloadSpeedView = SpeedInfoView.instantiateFromNib()
+        downloadSpeedView.speedType = .download
+        downloadSpeedView.speed = nil
+        
+        let uploadSpeedView = SpeedInfoView.instantiateFromNib()
+        uploadSpeedView.speedType = .upload
+        uploadSpeedView.speed = nil
+        
+        let speedTestStackView = UIStackView(arrangedSubviews: [downloadSpeedView, uploadSpeedView])
+        speedTestStackView.spacing = 24
+        speedTestStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(speedTestStackView)
+        
+        NSLayoutConstraint.activate([
+            speedTestStackView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -16),
+            speedTestStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print(">>>speedTestStackView: ", speedTestStackView.frame.height)
+        }
     }
 }
 
