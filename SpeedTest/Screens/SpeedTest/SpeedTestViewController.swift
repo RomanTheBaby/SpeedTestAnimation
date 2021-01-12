@@ -18,6 +18,8 @@ final class SpeedTestViewController: UIViewController {
     @IBOutlet private var checkmarkButton: RoundedButton!
     @IBOutlet private var octagonButton: RoundedButton!
     
+    @IBOutlet private var networkInfoStackView: UIStackView!
+    
     
     // MARK: - LifeCycle
     
@@ -27,27 +29,32 @@ final class SpeedTestViewController: UIViewController {
         setupAppearance()
     }
     
+}
+
+
+// MARK: - UI Setup
+
+private extension SpeedTestViewController {
     
-    // MARK: - Private Methods
-    
-    private func setupAppearance() {
+    func setupAppearance() {
         setupGradientView()
         setupStartButton()
         setupToolBarButtons()
+        setupNetworkInfoStack()
     }
     
-    private func setupGradientView() {
+    func setupGradientView() {
         let gradientView = GradientView()
         view.insertSubview(gradientView, at: 0)
         view.embed(gradientView)
     }
     
-    private func setupStartButton() {
+    func setupStartButton() {
         startTestButton.backgroundColor = .buttonBackground
         startTestButton.castsShadow = true
     }
     
-    private func setupToolBarButtons() {
+    func setupToolBarButtons() {
         sliderButton.backgroundColor = .buttonBackground
         checkmarkButton.backgroundColor = .clear
         octagonButton.backgroundColor = .clear
@@ -64,6 +71,22 @@ final class SpeedTestViewController: UIViewController {
         checkmarkButton.tintColor = .buttonTint
         octagonButton.tintColor = .buttonTint
         
+    }
+    
+    func setupNetworkInfoStack() {
+        let chinaTelecomNetworkInfo = NetworkInfo(name: "China Telecom", networkType: .wifi)
+        let chinaTelecomInfoView = NetworkInfoView.instantiateFromNib()
+        chinaTelecomInfoView.backgroundColor = .clear
+        chinaTelecomInfoView.translatesAutoresizingMaskIntoConstraints = false
+        chinaTelecomInfoView.render(chinaTelecomNetworkInfo)
+        networkInfoStackView.addArrangedSubview(chinaTelecomInfoView)
+        
+        let jinNetworkInfo = NetworkInfo(name: "YunJinTianFu", provider: "Chengdu", networkType: .lan)
+        let jinTelecomInfoView = NetworkInfoView.instantiateFromNib()
+        jinTelecomInfoView.backgroundColor = .clear
+        jinTelecomInfoView.translatesAutoresizingMaskIntoConstraints = false
+        jinTelecomInfoView.render(jinNetworkInfo)
+        networkInfoStackView.addArrangedSubview(jinTelecomInfoView)
     }
 }
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NetworkInfoView" customModule="SpeedTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="653" height="144"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIy-UU-iWY" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                    <rect key="frame" x="8" y="8" width="128" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jIy-UU-iWY" secondAttribute="height" multiplier="1:1" id="RvS-XA-qsM"/>
+                    </constraints>
+                    <color key="tintColor" red="0.29411764705882354" green="0.37647058823529411" blue="0.4392156862745098" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="globe" catalog="system"/>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Isp-4Y-9lq">
+                    <rect key="frame" x="144" y="8" width="501" height="128"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BK6-sW-6UF">
+                            <rect key="frame" x="0.0" y="0.0" width="501" height="128"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWf-Km-DzP">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="128"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wMw-Df-Ira">
+                                    <rect key="frame" x="373" y="4" width="128" height="120"/>
+                                    <color key="tintColor" red="0.29324412350000001" green="0.37709540130000002" blue="0.43869203330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="wMw-Df-Ira" secondAttribute="height" multiplier="1:1" id="wts-53-iKd"/>
+                                    </constraints>
+                                    <imageReference key="image" image="chevron.right.circle.fill" catalog="system" symbolScale="small"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="small" weight="thin"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="wMw-Df-Ira" secondAttribute="bottom" id="G8B-5c-U6I"/>
+                                <constraint firstItem="wMw-Df-Ira" firstAttribute="top" secondItem="BK6-sW-6UF" secondAttribute="top" id="JMS-AK-IEN"/>
+                                <constraint firstAttribute="trailing" secondItem="wMw-Df-Ira" secondAttribute="trailing" id="PaM-RQ-bRU"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tl2-7z-GS5">
+                            <rect key="frame" x="0.0" y="128" width="501" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Isp-4Y-9lq" secondAttribute="trailing" constant="8" id="Bt5-l5-Wa4"/>
+                <constraint firstAttribute="bottom" secondItem="jIy-UU-iWY" secondAttribute="bottom" constant="8" id="Pyh-6a-eyG"/>
+                <constraint firstItem="Isp-4Y-9lq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="bw6-SA-4FI"/>
+                <constraint firstAttribute="bottom" secondItem="Isp-4Y-9lq" secondAttribute="bottom" constant="8" id="fJ4-dF-ZHl"/>
+                <constraint firstItem="jIy-UU-iWY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="iJh-UZ-KEP"/>
+                <constraint firstItem="Isp-4Y-9lq" firstAttribute="leading" secondItem="jIy-UU-iWY" secondAttribute="trailing" constant="8" id="tze-4y-4pA"/>
+                <constraint firstItem="jIy-UU-iWY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ulq-ib-FGA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="accessoryImageView" destination="wMw-Df-Ira" id="DIy-aT-gtf"/>
+                <outlet property="networkTypeButton" destination="jIy-UU-iWY" id="FgX-mH-0Se"/>
+                <outlet property="subtitleLabel" destination="Tl2-7z-GS5" id="zFp-5C-mFP"/>
+                <outlet property="titleLabel" destination="UWf-Km-DzP" id="m5M-lP-NMj"/>
+            </connections>
+            <point key="canvasLocation" x="313.768115942029" y="402.45535714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
