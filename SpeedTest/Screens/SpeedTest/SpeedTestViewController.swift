@@ -113,10 +113,6 @@ private extension SpeedTestViewController {
             speedTestStackView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -16),
             speedTestStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print(">>>speedTestStackView: ", speedTestStackView.frame.height)
-        }
     }
 }
 
