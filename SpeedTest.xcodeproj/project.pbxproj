@@ -15,6 +15,7 @@
 		A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */; };
 		A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADFB25AD1241004C7BED /* GradientView.swift */; };
 		A361AE0125AD141D004C7BED /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361AE0025AD141D004C7BED /* UIView+Extension.swift */; };
+		A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A20C8A25AE7A9400624698 /* EmitterView.swift */; };
 		A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */; };
 		A3BC703F25AE5DE100F1E612 /* SpeedInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */; };
 		A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FC443E25AD169D0006F61A /* Colors.xcassets */; };
@@ -37,6 +38,7 @@
 		A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedTestViewController.storyboard; sourceTree = "<group>"; };
 		A361ADFB25AD1241004C7BED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A361AE0025AD141D004C7BED /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A3A20C8A25AE7A9400624698 /* EmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterView.swift; sourceTree = "<group>"; };
 		A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedInfoView.swift; sourceTree = "<group>"; };
 		A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedInfoView.xib; sourceTree = "<group>"; };
 		A3FC443E25AD169D0006F61A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -154,10 +156,11 @@
 		A361ADF925AD1230004C7BED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC703925AE5CF800F1E612 /* Speed */,
+				A3A20C8925AE7A8900624698 /* Emitter */,
 				A361ADFA25AD1236004C7BED /* Gradient */,
 				A3FC444925AD265D0006F61A /* Network Info */,
 				A3FC444525AD1D850006F61A /* Rounded Button */,
+				A3BC703925AE5CF800F1E612 /* Speed */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +171,14 @@
 				A361ADFB25AD1241004C7BED /* GradientView.swift */,
 			);
 			path = Gradient;
+			sourceTree = "<group>";
+		};
+		A3A20C8925AE7A8900624698 /* Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				A3A20C8A25AE7A9400624698 /* EmitterView.swift */,
+			);
+			path = Emitter;
 			sourceTree = "<group>";
 		};
 		A3BC703925AE5CF800F1E612 /* Speed */ = {
@@ -286,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */,
+				A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */,
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
 				A3FC445C25AD49B20006F61A /* NibInstantiatable.swift in Sources */,

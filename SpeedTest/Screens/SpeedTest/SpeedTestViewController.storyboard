@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="checkmarkButton" destination="0yy-LM-zEq" id="TDf-E3-6uC"/>
+                        <outlet property="logoStackView" destination="k4l-9U-mwQ" id="gOt-6y-Mgx"/>
                         <outlet property="networkInfoStackView" destination="EgN-fA-vTV" id="zbf-be-Lcn"/>
                         <outlet property="octagonButton" destination="hdn-ni-d2o" id="bS7-dn-gJz"/>
                         <outlet property="sliderButton" destination="0W8-UU-gki" id="9FZ-m3-zGQ"/>

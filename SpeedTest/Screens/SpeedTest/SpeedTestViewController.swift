@@ -14,6 +14,7 @@ final class SpeedTestViewController: UIViewController {
     
     @IBOutlet private var startTestButton: RoundedButton!
     
+    @IBOutlet private var logoStackView: UIStackView!
     @IBOutlet private var sliderButton: RoundedButton!
     @IBOutlet private var checkmarkButton: RoundedButton!
     @IBOutlet private var octagonButton: RoundedButton!
@@ -41,6 +42,7 @@ private extension SpeedTestViewController {
         setupStartButton()
         setupToolBarButtons()
         setupNetworkInfoStack()
+        setupEmitterView()
         setupSpeedTestViews()
     }
     
@@ -92,6 +94,19 @@ private extension SpeedTestViewController {
         jinTelecomInfoView.translatesAutoresizingMaskIntoConstraints = false
         jinTelecomInfoView.render(jinNetworkInfo)
         networkInfoStackView.addArrangedSubview(jinTelecomInfoView)
+    }
+    
+    func setupEmitterView() {
+        let emitterView = EmitterView(frame: .zero)
+        emitterView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emitterView)
+        
+        NSLayoutConstraint.activate([
+            emitterView.topAnchor.constraint(equalTo: logoStackView.bottomAnchor, constant: 8),
+            emitterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emitterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emitterView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+        ])
     }
     
     func setupSpeedTestViews() {
