@@ -90,7 +90,7 @@ private extension StartTestButton {
             indicatorsStackView.arrangedSubviews[0].widthAnchor.constraint(equalTo: indicatorsStackView.arrangedSubviews[0].heightAnchor),
             indicatorsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             indicatorsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            indicatorsStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1),
+            indicatorsStackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
         ])
     }
     
@@ -111,7 +111,7 @@ private extension StartTestButton {
             animationPath.addLine(to: endPoint)
         } else {
             animationPath.addQuadCurve(to: endPoint, controlPoint: CGPoint(x: abs(startPoint.x - endPoint.x) / 2,
-                                                                           y: startPoint.y + bounds.height / 3))
+                                                                           y: startPoint.y + bounds.height / 2.5))
         }
         
         let animation = CAKeyframeAnimation(keyPath: "position")
