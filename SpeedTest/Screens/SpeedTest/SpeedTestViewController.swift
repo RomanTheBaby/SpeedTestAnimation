@@ -15,6 +15,7 @@ final class SpeedTestViewController: UIViewController {
     fileprivate enum State: String {
         case defferingTest
         case idle
+        case result
         case testDownload
         case testUpload
     }
@@ -41,6 +42,9 @@ final class SpeedTestViewController: UIViewController {
                 emitterView.isCenterEmissionEnabled = true
                 emitterView.isSideEmissionEnabled = true
                 
+            case .result:
+                uploadSpeedView.speed = 65.25
+                
             case .testDownload:
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4,
                                                                delay: 0,
@@ -60,11 +64,12 @@ final class SpeedTestViewController: UIViewController {
                 }
                 
                 animator.startAnimation()
-                
+
                 emitterView.isCenterEmissionEnabled = false
                 emitterView.isSideEmissionEnabled = true
                 
             case .testUpload:
+                downloadSpeedView.speed = 205.5
                 emitterView.isCenterEmissionEnabled = true
                 emitterView.isSideEmissionEnabled = false
                 
@@ -85,15 +90,23 @@ final class SpeedTestViewController: UIViewController {
     
     @IBOutlet private var networkInfoStackView: UIStackView!
     
-    private lazy var speedTestStackView: UIStackView = {
+    private lazy var downloadSpeedView: SpeedInfoView = {
         let downloadSpeedView = SpeedInfoView.instantiateFromNib()
         downloadSpeedView.speedType = .download
         downloadSpeedView.speed = nil
         
+        return downloadSpeedView
+    }()
+    
+    private lazy var uploadSpeedView: SpeedInfoView = {
         let uploadSpeedView = SpeedInfoView.instantiateFromNib()
         uploadSpeedView.speedType = .upload
         uploadSpeedView.speed = nil
         
+        return uploadSpeedView
+    }()
+    
+    private lazy var speedTestStackView: UIStackView = {
         let speedTestStackView = UIStackView(arrangedSubviews: [downloadSpeedView, uploadSpeedView])
         speedTestStackView.spacing = 24
         speedTestStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -243,11 +256,14 @@ extension SpeedTestViewController.State {
         case .idle:
             return .defferingTest
 
+        case .result:
+            return .idle
+            
         case .testDownload:
             return .testUpload
             
         case .testUpload:
-            return .idle
+            return .result
         }
     }
 }

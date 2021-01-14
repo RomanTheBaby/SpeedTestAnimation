@@ -27,7 +27,11 @@ final class SpeedInfoView: UIView, NibInstantiatable {
         }
     }
     
-    var speed: Double?
+    var speed: Double? {
+        didSet {
+            updateSpeedLabel()
+        }
+    }
     
     
     // MARK: - Outlets
@@ -44,12 +48,20 @@ final class SpeedInfoView: UIView, NibInstantiatable {
         typeImageView.tintColor = speedType.imageTintColor
         typeLabel.text = speedType.title
         
-        if let speed = speed {
-            speedLabel.text = "\(speed)"
-        } else {
-            speedLabel.text = "-"
-        }
-        
+        updateSpeedLabel()
+    }
+    
+    private func updateSpeedLabel() {
+        UIView.transition(with: speedLabel,
+                          duration: 0.25,
+                          options: .transitionFlipFromTop,
+                          animations: { [self] in
+                            if let speed = speed {
+                                speedLabel.text = "\(speed)"
+                            } else {
+                                speedLabel.text = "-"
+                            }
+                          })
     }
     
 }
