@@ -19,9 +19,6 @@ class ChartView: UIView {
     
     func drawCharts() {
         removeCharts()
-//        self.shapeLayer?.removeFromSuperlayer()
-        
-        // create whatever path you want
         
         let greenChartPath = UIBezierPath()
         greenChartPath.move(to: CGPoint(x: 25, y: bounds.maxY))
@@ -117,7 +114,6 @@ class ChartView: UIView {
         axisPath.addLine(to: CGPoint(x: 25, y: bounds.maxY))
         axisPath.stroke()
 
-        
         for i in 0...6 {
             let scalePoint = CGPoint(x: 0, y: bounds.height - (CGFloat(i) * bounds.height / 7.0) - 15)
             let scale = i * 50
