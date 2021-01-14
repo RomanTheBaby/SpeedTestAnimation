@@ -30,7 +30,10 @@ final class SpeedTestViewController: UIViewController {
                 startTestButton.showLoadingAnimation()
                 
             case .idle:
+                chartView.isHidden = true
+                chartView.removeCharts()
                 emitterView.isHidden = false
+                
                 UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
                     showPacketsInfoView(false)
                     startTestButton.transform = .identity
@@ -43,6 +46,8 @@ final class SpeedTestViewController: UIViewController {
                 emitterView.udpate(sideEmissionsEnabled: true, centerEmissionsEnabled: true)
                 
             case .result:
+                chartView.isHidden = false
+                chartView.drawCharts()
                 emitterView.stopTestSimulation()
                 emitterView.isHidden = true
                 uploadSpeedView.speed = 65.25
@@ -50,7 +55,7 @@ final class SpeedTestViewController: UIViewController {
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4,
                                                                delay: 0,
                                                                options: .transitionFlipFromTop) { [self] in
-                    speedTestStackView.transform = speedTestStackView.transform.translatedBy(x: 0, y: -(speedTestStackView.frame.origin.y - logoStackView.frame.maxY - 24))
+                    speedTestStackView.transform = speedTestStackView.transform.translatedBy(x: 0, y: -(speedTestStackView.frame.origin.y - logoStackView.frame.maxY - 36))
                 }
                 
             case .testDownload:
@@ -95,6 +100,7 @@ final class SpeedTestViewController: UIViewController {
     @IBOutlet private var sliderButton: RoundedButton!
     @IBOutlet private var checkmarkButton: RoundedButton!
     @IBOutlet private var octagonButton: RoundedButton!
+    @IBOutlet private var chartView: ChartView!
     
     private lazy var downloadSpeedView: SpeedInfoView = {
         let downloadSpeedView = SpeedInfoView.instantiateFromNib()

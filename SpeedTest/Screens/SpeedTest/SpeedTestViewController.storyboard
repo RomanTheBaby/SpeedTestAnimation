@@ -97,10 +97,19 @@
                                     <constraint firstAttribute="height" constant="40" id="6E7-U0-7rw"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-jN-gC8" customClass="ChartView" customModule="SpeedTest" customModuleProvider="target">
+                                <rect key="frame" x="24" y="186" width="366" height="172"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="sba-QO-wdM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ECX-Fh-HnI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5IP-jN-gC8" firstAttribute="leading" secondItem="ECX-Fh-HnI" secondAttribute="leading" constant="24" id="5Mf-Kb-Guu"/>
+                            <constraint firstItem="ECX-Fh-HnI" firstAttribute="trailing" secondItem="5IP-jN-gC8" secondAttribute="trailing" constant="24" id="8aP-ks-IX0"/>
                             <constraint firstItem="KK9-XC-aqs" firstAttribute="top" secondItem="k4l-9U-mwQ" secondAttribute="bottom" constant="8" id="8w3-zN-Fud"/>
                             <constraint firstItem="ECX-Fh-HnI" firstAttribute="trailing" secondItem="KK9-XC-aqs" secondAttribute="trailing" constant="24" id="EhN-Ua-2We"/>
                             <constraint firstItem="KK9-XC-aqs" firstAttribute="leading" secondItem="ECX-Fh-HnI" secondAttribute="leading" constant="24" id="RgI-tB-pGS"/>
@@ -111,9 +120,11 @@
                             <constraint firstItem="ECX-Fh-HnI" firstAttribute="bottom" secondItem="HJD-TB-yIJ" secondAttribute="bottom" constant="8" id="a3J-KQ-UXf"/>
                             <constraint firstItem="k4l-9U-mwQ" firstAttribute="top" secondItem="ECX-Fh-HnI" secondAttribute="top" constant="8" id="daQ-oC-Fch"/>
                             <constraint firstItem="HJD-TB-yIJ" firstAttribute="top" secondItem="fS1-44-fBw" secondAttribute="bottom" constant="40" id="iyk-fo-Uud"/>
+                            <constraint firstItem="5IP-jN-gC8" firstAttribute="top" secondItem="KK9-XC-aqs" secondAttribute="bottom" constant="85.5" id="y5K-Le-PWc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chartView" destination="5IP-jN-gC8" id="e2o-ho-aey"/>
                         <outlet property="checkmarkButton" destination="0yy-LM-zEq" id="TDf-E3-6uC"/>
                         <outlet property="logoStackView" destination="k4l-9U-mwQ" id="gOt-6y-Mgx"/>
                         <outlet property="octagonButton" destination="hdn-ni-d2o" id="bS7-dn-gJz"/>

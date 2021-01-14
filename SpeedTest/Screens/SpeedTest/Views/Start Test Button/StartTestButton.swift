@@ -57,7 +57,7 @@ import UIKit
         
         let loadingIndicatorViews = indicatorsStackView.arrangedSubviews
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             loadingIndicatorViews.enumerated().forEach { index, subview in
                 let nextView = index < loadingIndicatorViews.count - 1 ? loadingIndicatorViews[index + 1] : loadingIndicatorViews[0]
                 animate(view: subview, to: nextView.center)

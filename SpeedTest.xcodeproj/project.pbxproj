@@ -23,6 +23,7 @@
 		A3BC703F25AE5DE100F1E612 /* SpeedInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */; };
 		A3BF40A025B0D90C005EE01F /* SpeedTestEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */; };
 		A3BF40D725B0ECFD005EE01F /* SpeedTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */; };
+		A3BF40DB25B0F45D005EE01F /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40DA25B0F45D005EE01F /* ChartView.swift */; };
 		A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FC443E25AD169D0006F61A /* Colors.xcassets */; };
 		A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444225AD1A300006F61A /* UIImage+Extension.swift */; };
 		A3FC444725AD1D8F0006F61A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444625AD1D8F0006F61A /* RoundedButton.swift */; };
@@ -51,6 +52,7 @@
 		A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedInfoView.xib; sourceTree = "<group>"; };
 		A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestEmitterView.swift; sourceTree = "<group>"; };
 		A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestType.swift; sourceTree = "<group>"; };
+		A3BF40DA25B0F45D005EE01F /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		A3FC443E25AD169D0006F61A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A3FC444225AD1A300006F61A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		A3FC444625AD1D8F0006F61A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		A361ADF925AD1230004C7BED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3BF40D925B0F450005EE01F /* Chart */,
 				A364105E25AFD683004B8559 /* Rounded */,
 				A3A20C8925AE7A8900624698 /* Emitter */,
 				A361ADFA25AD1236004C7BED /* Gradient */,
@@ -250,6 +253,14 @@
 				A3FC444E25AD28450006F61A /* NetworkInfo.swift */,
 			);
 			path = NetworkInfo;
+			sourceTree = "<group>";
+		};
+		A3BF40D925B0F450005EE01F /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF40DA25B0F45D005EE01F /* ChartView.swift */,
+			);
+			path = Chart;
 			sourceTree = "<group>";
 		};
 		A3FC444525AD1D850006F61A /* Rounded Button */ = {
@@ -364,6 +375,7 @@
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
 				A364105C25AFCC19004B8559 /* StartTestButton.swift in Sources */,
+				A3BF40DB25B0F45D005EE01F /* ChartView.swift in Sources */,
 				A3BF40A025B0D90C005EE01F /* SpeedTestEmitterView.swift in Sources */,
 				A364105325AFC16D004B8559 /* EmitterLayer.swift in Sources */,
 				A3BF40D725B0ECFD005EE01F /* SpeedTestType.swift in Sources */,
