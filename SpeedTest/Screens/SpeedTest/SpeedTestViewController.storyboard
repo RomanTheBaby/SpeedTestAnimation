@@ -44,6 +44,9 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="START"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="HJD-TB-yIJ">
                                 <rect key="frame" x="91" y="814" width="232" height="40"/>
@@ -102,6 +105,11 @@
             <point key="canvasLocation" x="911.59420289855075" y="-97.098214285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="fS1-44-fBw">
+            <size key="intrinsicContentSize" width="62" height="36"/>
+        </designable>
+    </designables>
     <resources>
         <image name="slider.vertical.3" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
