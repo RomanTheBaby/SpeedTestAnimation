@@ -29,6 +29,7 @@ final class SpeedTestViewController: UIViewController {
                 startTestButton.showLoadingAnimation()
                 
             case .idle:
+                startTestButton.stopLoadingAnimation()
                 emitterView.isCenterEmissionEnabled = true
                 emitterView.isSideEmissionEnabled = true
                 
