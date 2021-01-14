@@ -29,11 +29,38 @@ final class SpeedTestViewController: UIViewController {
                 startTestButton.showLoadingAnimation()
                 
             case .idle:
+                UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
+                    showPacketsInfoView(false)
+                    startTestButton.transform = .identity
+                    speedTestStackView.transform = .identity
+                    networkInfoStackView.transform = .identity
+                }.startAnimation()
+                
                 startTestButton.stopLoadingAnimation()
+                
                 emitterView.isCenterEmissionEnabled = true
                 emitterView.isSideEmissionEnabled = true
                 
             case .testDownload:
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4,
+                                                               delay: 0,
+                                                               options: .transitionFlipFromTop) { [self] in
+                    showPacketsInfoView(true)
+                }
+
+                let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
+                    startTestButton.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                }
+                
+                let startTestButtonHeight = view.frame.width * 0.3
+                
+                animator.addAnimations { [self] in
+                    speedTestStackView.transform = CGAffineTransform(translationX: 0, y: startTestButtonHeight / 2)
+                    networkInfoStackView.transform = CGAffineTransform(translationX: 0, y: startTestButtonHeight / 2)
+                }
+                
+                animator.startAnimation()
+                
                 emitterView.isCenterEmissionEnabled = false
                 emitterView.isSideEmissionEnabled = true
                 
@@ -50,12 +77,29 @@ final class SpeedTestViewController: UIViewController {
     
     @IBOutlet private var startTestButton: StartTestButton!
     
+    @IBOutlet private var packetsInfoStackView: UIStackView!
     @IBOutlet private var logoStackView: UIStackView!
     @IBOutlet private var sliderButton: RoundedButton!
     @IBOutlet private var checkmarkButton: RoundedButton!
     @IBOutlet private var octagonButton: RoundedButton!
     
     @IBOutlet private var networkInfoStackView: UIStackView!
+    
+    private lazy var speedTestStackView: UIStackView = {
+        let downloadSpeedView = SpeedInfoView.instantiateFromNib()
+        downloadSpeedView.speedType = .download
+        downloadSpeedView.speed = nil
+        
+        let uploadSpeedView = SpeedInfoView.instantiateFromNib()
+        uploadSpeedView.speedType = .upload
+        uploadSpeedView.speed = nil
+        
+        let speedTestStackView = UIStackView(arrangedSubviews: [downloadSpeedView, uploadSpeedView])
+        speedTestStackView.spacing = 24
+        speedTestStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return speedTestStackView
+    }()
     
     private lazy var emitterView: EmitterView = {
         let emitterView = EmitterView(frame: .zero)
@@ -88,6 +132,7 @@ private extension SpeedTestViewController {
         setupNetworkInfoStack()
         setupEmitterView()
         setupSpeedTestViews()
+        setupPacketsInfoView()
     }
     
     func setupGradientView() {
@@ -153,18 +198,6 @@ private extension SpeedTestViewController {
     }
     
     func setupSpeedTestViews() {
-        let downloadSpeedView = SpeedInfoView.instantiateFromNib()
-        downloadSpeedView.speedType = .download
-        downloadSpeedView.speed = nil
-        
-        let uploadSpeedView = SpeedInfoView.instantiateFromNib()
-        uploadSpeedView.speedType = .upload
-        uploadSpeedView.speed = nil
-        
-        let speedTestStackView = UIStackView(arrangedSubviews: [downloadSpeedView, uploadSpeedView])
-        speedTestStackView.spacing = 24
-        speedTestStackView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(speedTestStackView)
         
         NSLayoutConstraint.activate([
@@ -172,6 +205,21 @@ private extension SpeedTestViewController {
             speedTestStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
+    
+    func setupPacketsInfoView() {
+        showPacketsInfoView(false)
+    }
+}
+
+
+// MARK: - Helper Methods
+
+private extension SpeedTestViewController {
+    func showPacketsInfoView(_ shouldShow: Bool) {
+        packetsInfoStackView.transform = shouldShow ? .identity : CGAffineTransform(translationX: 0, y: -20)
+        packetsInfoStackView.alpha = shouldShow ? 1 : 0
+    }
+    
 }
 
 

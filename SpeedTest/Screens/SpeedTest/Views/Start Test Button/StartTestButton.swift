@@ -120,7 +120,7 @@ private extension StartTestButton {
 
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
-        animation.duration = 1.0
+        animation.duration = 0.6
         animation.repeatCount = .infinity
         animation.timingFunction = .init(name: .easeInEaseOut)
 
