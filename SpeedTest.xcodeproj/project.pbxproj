@@ -15,6 +15,7 @@
 		A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */; };
 		A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADFB25AD1241004C7BED /* GradientView.swift */; };
 		A361AE0125AD141D004C7BED /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361AE0025AD141D004C7BED /* UIView+Extension.swift */; };
+		A364105325AFC16D004B8559 /* EmitterLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364105225AFC16D004B8559 /* EmitterLayer.swift */; };
 		A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A20C8A25AE7A9400624698 /* EmitterView.swift */; };
 		A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */; };
 		A3BC703F25AE5DE100F1E612 /* SpeedInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */; };
@@ -38,6 +39,7 @@
 		A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedTestViewController.storyboard; sourceTree = "<group>"; };
 		A361ADFB25AD1241004C7BED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A361AE0025AD141D004C7BED /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A364105225AFC16D004B8559 /* EmitterLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterLayer.swift; sourceTree = "<group>"; };
 		A3A20C8A25AE7A9400624698 /* EmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterView.swift; sourceTree = "<group>"; };
 		A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedInfoView.swift; sourceTree = "<group>"; };
 		A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedInfoView.xib; sourceTree = "<group>"; };
@@ -176,9 +178,18 @@
 		A3A20C8925AE7A8900624698 /* Emitter */ = {
 			isa = PBXGroup;
 			children = (
+				A3A20C9225AE949200624698 /* Layers */,
 				A3A20C8A25AE7A9400624698 /* EmitterView.swift */,
 			);
 			path = Emitter;
+			sourceTree = "<group>";
+		};
+		A3A20C9225AE949200624698 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				A364105225AFC16D004B8559 /* EmitterLayer.swift */,
+			);
+			path = Layers;
 			sourceTree = "<group>";
 		};
 		A3BC703925AE5CF800F1E612 /* Speed */ = {
@@ -300,6 +311,7 @@
 				A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */,
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
+				A364105325AFC16D004B8559 /* EmitterLayer.swift in Sources */,
 				A3FC445C25AD49B20006F61A /* NibInstantiatable.swift in Sources */,
 				A3FC444F25AD28450006F61A /* NetworkInfo.swift in Sources */,
 				A3FC445325AD292D0006F61A /* NetworkInfoView.swift in Sources */,

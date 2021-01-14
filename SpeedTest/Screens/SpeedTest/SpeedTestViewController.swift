@@ -10,7 +10,38 @@ import UIKit
 final class SpeedTestViewController: UIViewController {
     
     
-    // MARK: - Private Outlets
+    // MARK: - State
+    
+    fileprivate enum State: String {
+        case testDownload
+        case idle
+        case testUpload
+    }
+    
+    
+    // MARK: - Private Properties
+    
+    private var state: State = .idle {
+        didSet {
+            switch state {
+            case .testDownload:
+                emitterView.isCenterEmissionEnabled = false
+                emitterView.isSideEmissionEnabled = true
+                
+            case .idle:
+                emitterView.isCenterEmissionEnabled = true
+                emitterView.isSideEmissionEnabled = true
+                
+            case .testUpload:
+                emitterView.isCenterEmissionEnabled = true
+                emitterView.isSideEmissionEnabled = false
+                
+            }
+        }
+    }
+    
+    
+    // MARK: - Outlets
     
     @IBOutlet private var startTestButton: RoundedButton!
     
@@ -21,6 +52,13 @@ final class SpeedTestViewController: UIViewController {
     
     @IBOutlet private var networkInfoStackView: UIStackView!
     
+    private lazy var emitterView: EmitterView = {
+        let emitterView = EmitterView(frame: .zero)
+        emitterView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return emitterView
+    }()
+    
     
     // MARK: - LifeCycle
     
@@ -28,6 +66,7 @@ final class SpeedTestViewController: UIViewController {
         super.viewDidLoad()
         
         setupAppearance()
+        startTestButton.addTarget(self, action: #selector(handleStartButtomTap(_:)), for: .touchUpInside)
     }
     
 }
@@ -97,15 +136,14 @@ private extension SpeedTestViewController {
     }
     
     func setupEmitterView() {
-        let emitterView = EmitterView(frame: .zero)
-        emitterView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(emitterView)
-        
+
+        /// For simplicity emitter view was made a square.
         NSLayoutConstraint.activate([
             emitterView.topAnchor.constraint(equalTo: logoStackView.bottomAnchor, constant: 8),
-            emitterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            emitterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            emitterView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+            emitterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emitterView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
+            emitterView.widthAnchor.constraint(equalTo: emitterView.heightAnchor),
         ])
     }
     
@@ -128,6 +166,33 @@ private extension SpeedTestViewController {
             speedTestStackView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -16),
             speedTestStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
+    }
+}
+
+
+// MARK: - Action Handling
+
+private extension SpeedTestViewController {
+    @objc func handleStartButtomTap(_ sender: UIButton) {
+        state = state.next
+    }
+}
+
+
+// MARK: - State Helper Extension
+
+extension SpeedTestViewController.State {
+    var next: Self {
+        switch self {
+        case .testDownload:
+            return .testUpload
+            
+        case .idle:
+            return .testDownload
+            
+        case .testUpload:
+            return .idle
+        }
     }
 }
 
