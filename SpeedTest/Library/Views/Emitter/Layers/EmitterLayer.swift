@@ -10,13 +10,15 @@ import UIKit
 
 class EmitterLayer: CAEmitterLayer {
     
-    
+
     // MARK: - EmissionSource
     
     enum EmissionSource: CaseIterable {
         case bottomLeft
         case bottomRight
         case center
+        case middleLeft
+        case middleRight
         case topLeft
         case topRight
     }
@@ -25,6 +27,10 @@ class EmitterLayer: CAEmitterLayer {
     // MARK: - Private Properties
     
     private let source: EmissionSource
+    
+    private let particleImage = UIImage(systemName: "circle.fill")!.withRenderingMode(.alwaysTemplate)
+    private lazy var turquoiseParticleImage = particleImage.recolor(to: #colorLiteral(red: 0.08137629181, green: 0.7185662389, blue: 0.7331223488, alpha: 1))!
+    private lazy var purpeParticleImage = particleImage.recolor(to: #colorLiteral(red: 0.5639237761, green: 0.4082424939, blue: 0.7163909078, alpha: 1))!
     
     
     // MARK: - Init
@@ -50,12 +56,6 @@ class EmitterLayer: CAEmitterLayer {
     // MARK: - Public Methods
     
     func startEmission() {
-        guard let particleImage = UIImage(systemName: "circle.fill")?.withRenderingMode(.alwaysTemplate),
-              let turquoiseParticleImage = particleImage.recolor(to: #colorLiteral(red: 0.08137629181, green: 0.7185662389, blue: 0.7331223488, alpha: 1)),
-              let grayParticleImage = particleImage.recolor(to: #colorLiteral(red: 0.6435351372, green: 0.6973400712, blue: 0.7438098788, alpha: 1)),
-              let purpeParticleImage = particleImage.recolor(to: #colorLiteral(red: 0.5639237761, green: 0.4082424939, blue: 0.7163909078, alpha: 1)) else {
-            return
-        }
         guard (emitterCells ?? []).isEmpty else {
             birthRate = 1
             return
@@ -64,33 +64,45 @@ class EmitterLayer: CAEmitterLayer {
         switch source {
         case .bottomLeft:
             emitterCells = [
-                createEmitterCell(withVelocity: 70, birthRate: 1, lifetime: 1.5, scale: 0.15, image: turquoiseParticleImage, emissionLongitude: (5 * .pi) / 3),
+                createEmitterCell(withVelocity: 70, birthRate: 1, lifetime: 1.5, scale: 0.15, image: purpeParticleImage, emissionLongitude: (5 * .pi) / 3),
                 createEmitterCell(withVelocity: 80, birthRate: 1, lifetime: 1.4, scale: 0.3, image: purpeParticleImage, emissionLongitude: (7 * .pi) / 4)
             ]
             
         case .bottomRight:
             emitterCells = [
                 createEmitterCell(withVelocity: 90, birthRate: 1, lifetime: 1.6, scale: 0.2, image: purpeParticleImage, emissionLongitude: (5 * .pi) / 4),
-                createEmitterCell(withVelocity: 50, birthRate: 1, lifetime: 2, scale: 0.11, image: grayParticleImage, emissionLongitude: (4 * .pi) / 3)
+                createEmitterCell(withVelocity: 50, birthRate: 1, lifetime: 2, scale: 0.11, image: purpeParticleImage, emissionLongitude: (4 * .pi) / 3)
             ]
             
             
         case .center:
             emitterCells = [
                 createEmitterCell(withVelocity: 50, birthRate: 1, lifetime: 4, scale: 0.15, image: turquoiseParticleImage, emissionLongitude: .pi, emissionRange: 2 * .pi),
-                createEmitterCell(withVelocity: 45, birthRate: 2, lifetime: 3, scale: 0.1, image: grayParticleImage, emissionLongitude: .pi, emissionRange: 2 * .pi),
-                createEmitterCell(withVelocity: 40, birthRate: 1, lifetime: 4, scale: 0.095, image: purpeParticleImage, emissionLongitude: .pi, emissionRange: 2 * .pi),
+                createEmitterCell(withVelocity: 40, birthRate: 1, lifetime: 4, scale: 0.095, image: turquoiseParticleImage, emissionLongitude: .pi, emissionRange: 2 * .pi),
+                createEmitterCell(withVelocity: 45, birthRate: 1.2, lifetime: 3, scale: 0.1, image: turquoiseParticleImage, emissionLongitude: .pi, emissionRange: 2 * .pi),
+            ]
+
+        case .middleLeft:
+            emitterCells = [
+                createEmitterCell(withVelocity: 70, birthRate: 1, lifetime: 1.5, scale: 0.15, image: purpeParticleImage, emissionLongitude: 2 * .pi),
+                createEmitterCell(withVelocity: 80, birthRate: 1, lifetime: 1.4, scale: 0.3, image: purpeParticleImage, emissionLongitude: (11 * .pi) / 6)
+            ]
+            
+        case .middleRight:
+            emitterCells = [
+                createEmitterCell(withVelocity: 90, birthRate: 1, lifetime: 1.6, scale: 0.2, image: purpeParticleImage, emissionLongitude: .pi),
+                createEmitterCell(withVelocity: 50, birthRate: 1, lifetime: 2, scale: 0.11, image: purpeParticleImage, emissionLongitude: (7 * .pi) / 6)
             ]
 
         case .topLeft:
             emitterCells = [
-                createEmitterCell(withVelocity: 100, birthRate: 1, lifetime: 1, scale: 0.2, image: grayParticleImage, emissionLongitude: .pi / 4),
-                createEmitterCell(withVelocity: 120, birthRate: 1, lifetime: 0.9, scale: 0.12, image: turquoiseParticleImage, emissionLongitude: .pi / 6)
+                createEmitterCell(withVelocity: 100, birthRate: 1, lifetime: 1, scale: 0.2, image: purpeParticleImage, emissionLongitude: .pi / 4),
+                createEmitterCell(withVelocity: 120, birthRate: 1, lifetime: 0.9, scale: 0.12, image: purpeParticleImage, emissionLongitude: .pi / 6)
             ]
             
         case .topRight:
             emitterCells = [
-                createEmitterCell(withVelocity: 70, birthRate: 1, lifetime: 1.5, scale: 0.15, image: turquoiseParticleImage, emissionLongitude: (3 * .pi) / 4),
+                createEmitterCell(withVelocity: 70, birthRate: 1, lifetime: 1.5, scale: 0.15, image: purpeParticleImage, emissionLongitude: (3 * .pi) / 4),
                 createEmitterCell(withVelocity: 100, birthRate: 1, lifetime: 1, scale: 0.15, image: purpeParticleImage, emissionLongitude: (5 * .pi) / 6)
             ]
             
@@ -122,6 +134,12 @@ class EmitterLayer: CAEmitterLayer {
             
         case .center:
             emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
+            
+        case .middleLeft:
+            emitterPosition = CGPoint(x: 0, y: bounds.midY)
+            
+        case .middleRight:
+            emitterPosition = CGPoint(x: bounds.maxX, y: bounds.midY)
             
         case .topLeft:
             emitterPosition = .zero

@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class EmitterView: UIView {
+class EmitterView: UIView {
     
     typealias EmissionSource = EmitterLayer.EmissionSource
     
@@ -23,41 +23,9 @@ final class EmitterView: UIView {
     }
     
     
-    // MARK: - Public Properties
-    
-    var isSideEmissionEnabled = true {
-        didSet {
-            emitters.filter {
-                $0.key != .center
-            }
-            .forEach { _, emitterLayer in
-                if isSideEmissionEnabled {
-                    layer.addSublayer(emitterLayer)
-                } else {
-                    emitterLayer.removeFromSuperlayer()
-                }
-            }
-        }
-    }
-    var isCenterEmissionEnabled = true {
-        didSet {
-            emitters.filter {
-                $0.key == .center
-            }
-            .forEach { _, emitterLayer in
-                if isCenterEmissionEnabled {
-                    layer.addSublayer(emitterLayer)
-                } else {
-                    emitterLayer.removeFromSuperlayer()
-                }
-            }
-        }
-    }
-    
-    
     // MARK: - Private Properties
     
-    private var emitters: [EmitterLayer.EmissionSource: EmitterLayer] = [:]
+    var emitters: [EmitterLayer.EmissionSource: EmitterLayer] = [:]
     
     
     // MARK: - Layout
@@ -85,6 +53,29 @@ final class EmitterView: UIView {
         emitters.values.forEach { emitterLayer in
             emitterLayer.startEmission()
             layer.addSublayer(emitterLayer)
+        }
+    }
+    
+    
+    // MARK: - Public Methods
+    
+    func udpate(sideEmissionsEnabled: Bool, centerEmissionsEnabled: Bool) {
+        emitters.forEach { source, emitterLayer in
+            switch source {
+            case .center:
+                if centerEmissionsEnabled {
+                    layer.addSublayer(emitterLayer)
+                } else {
+                    emitterLayer.removeFromSuperlayer()
+                }
+                
+            default:
+                if sideEmissionsEnabled {
+                    layer.addSublayer(emitterLayer)
+                } else {
+                    emitterLayer.removeFromSuperlayer()
+                }
+            }
         }
     }
 }

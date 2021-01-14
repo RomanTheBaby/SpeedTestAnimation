@@ -30,6 +30,7 @@ final class SpeedTestViewController: UIViewController {
                 startTestButton.showLoadingAnimation()
                 
             case .idle:
+                emitterView.isHidden = false
                 UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
                     showPacketsInfoView(false)
                     startTestButton.transform = .identity
@@ -39,11 +40,18 @@ final class SpeedTestViewController: UIViewController {
                 
                 startTestButton.stopLoadingAnimation()
                 
-                emitterView.isCenterEmissionEnabled = true
-                emitterView.isSideEmissionEnabled = true
+                emitterView.udpate(sideEmissionsEnabled: true, centerEmissionsEnabled: true)
                 
             case .result:
+                emitterView.stopTestSimulation()
+                emitterView.isHidden = true
                 uploadSpeedView.speed = 65.25
+                
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4,
+                                                               delay: 0,
+                                                               options: .transitionFlipFromTop) { [self] in
+                    speedTestStackView.transform = speedTestStackView.transform.translatedBy(x: 0, y: -(speedTestStackView.frame.origin.y - logoStackView.frame.maxY - 24))
+                }
                 
             case .testDownload:
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.4,
@@ -65,13 +73,13 @@ final class SpeedTestViewController: UIViewController {
                 
                 animator.startAnimation()
 
-                emitterView.isCenterEmissionEnabled = false
-                emitterView.isSideEmissionEnabled = true
+                emitterView.udpate(sideEmissionsEnabled: true, centerEmissionsEnabled: false)
+                emitterView.simulateTest(.download)
                 
             case .testUpload:
                 downloadSpeedView.speed = 205.5
-                emitterView.isCenterEmissionEnabled = true
-                emitterView.isSideEmissionEnabled = false
+                emitterView.udpate(sideEmissionsEnabled: false, centerEmissionsEnabled: true)
+                emitterView.simulateTest(.upload)
                 
             }
         }
@@ -114,8 +122,8 @@ final class SpeedTestViewController: UIViewController {
         return speedTestStackView
     }()
     
-    private lazy var emitterView: EmitterView = {
-        let emitterView = EmitterView(frame: .zero)
+    private lazy var emitterView: SpeedTestEmitterView = {
+        let emitterView = SpeedTestEmitterView(frame: .zero)
         emitterView.translatesAutoresizingMaskIntoConstraints = false
         
         return emitterView
@@ -233,6 +241,7 @@ private extension SpeedTestViewController {
         packetsInfoStackView.alpha = shouldShow ? 1 : 0
     }
     
+    #warning("make separeta method to show hide speed tests")
 }
 
 
