@@ -96,8 +96,6 @@ final class SpeedTestViewController: UIViewController {
     @IBOutlet private var checkmarkButton: RoundedButton!
     @IBOutlet private var octagonButton: RoundedButton!
     
-    @IBOutlet private var networkInfoStackView: UIStackView!
-    
     private lazy var downloadSpeedView: SpeedInfoView = {
         let downloadSpeedView = SpeedInfoView.instantiateFromNib()
         downloadSpeedView.speedType = .download
@@ -120,6 +118,16 @@ final class SpeedTestViewController: UIViewController {
         speedTestStackView.translatesAutoresizingMaskIntoConstraints = false
         
         return speedTestStackView
+    }()
+    
+    private lazy var networkInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 6
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
     }()
     
     private lazy var emitterView: SpeedTestEmitterView = {
@@ -187,9 +195,7 @@ private extension SpeedTestViewController {
     }
     
     func setupNetworkInfoStack() {
-        networkInfoStackView.arrangedSubviews.forEach {
-            $0.removeFromSuperview()
-        }
+        view.addSubview(networkInfoStackView)
         
         let chinaTelecomNetworkInfo = NetworkInfo(name: "China Telecom", networkType: .wifi)
         let chinaTelecomInfoView = NetworkInfoView.instantiateFromNib()
@@ -204,6 +210,13 @@ private extension SpeedTestViewController {
         jinTelecomInfoView.translatesAutoresizingMaskIntoConstraints = false
         jinTelecomInfoView.render(jinNetworkInfo)
         networkInfoStackView.addArrangedSubview(jinTelecomInfoView)
+        
+        NSLayoutConstraint.activate([
+            networkInfoStackView.bottomAnchor.constraint(equalTo: startTestButton.topAnchor, constant: -36),
+            networkInfoStackView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 8),
+            networkInfoStackView.centerXAnchor.constraint(equalTo: startTestButton.centerXAnchor),
+            networkInfoStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.52),
+        ])
     }
     
     func setupEmitterView() {
@@ -240,8 +253,6 @@ private extension SpeedTestViewController {
         packetsInfoStackView.transform = shouldShow ? .identity : CGAffineTransform(translationX: 0, y: -20)
         packetsInfoStackView.alpha = shouldShow ? 1 : 0
     }
-    
-    #warning("make separeta method to show hide speed tests")
 }
 
 
