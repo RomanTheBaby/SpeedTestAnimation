@@ -34,7 +34,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-44-fBw" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-44-fBw" customClass="StartTestButton" customModule="SpeedTest" customModuleProvider="target">
                                 <rect key="frame" x="138.5" y="637.5" width="137" height="136.5"/>
                                 <color key="backgroundColor" red="0.12941176470588234" green="0.20810529589999999" blue="0.26575750110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

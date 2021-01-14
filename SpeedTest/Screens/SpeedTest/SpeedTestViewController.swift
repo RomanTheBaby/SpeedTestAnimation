@@ -13,8 +13,9 @@ final class SpeedTestViewController: UIViewController {
     // MARK: - State
     
     fileprivate enum State: String {
-        case testDownload
+        case defferingTest
         case idle
+        case testDownload
         case testUpload
     }
     
@@ -24,12 +25,15 @@ final class SpeedTestViewController: UIViewController {
     private var state: State = .idle {
         didSet {
             switch state {
-            case .testDownload:
-                emitterView.isCenterEmissionEnabled = false
-                emitterView.isSideEmissionEnabled = true
+            case .defferingTest:
+                startTestButton.showLoadingAnimation()
                 
             case .idle:
                 emitterView.isCenterEmissionEnabled = true
+                emitterView.isSideEmissionEnabled = true
+                
+            case .testDownload:
+                emitterView.isCenterEmissionEnabled = false
                 emitterView.isSideEmissionEnabled = true
                 
             case .testUpload:
@@ -43,7 +47,7 @@ final class SpeedTestViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private var startTestButton: RoundedButton!
+    @IBOutlet private var startTestButton: StartTestButton!
     
     @IBOutlet private var logoStackView: UIStackView!
     @IBOutlet private var sliderButton: RoundedButton!
@@ -184,11 +188,14 @@ private extension SpeedTestViewController {
 extension SpeedTestViewController.State {
     var next: Self {
         switch self {
-        case .testDownload:
-            return .testUpload
+        case .defferingTest:
+            return .testDownload
             
         case .idle:
-            return .testDownload
+            return .defferingTest
+
+        case .testDownload:
+            return .testUpload
             
         case .testUpload:
             return .idle
