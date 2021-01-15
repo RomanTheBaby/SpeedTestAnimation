@@ -27,7 +27,7 @@ extension SpeedTestType {
     var imageTintColor: UIColor {
         switch self {
         case .download:
-            return .green
+            return #colorLiteral(red: 0.08235294118, green: 0.7176470588, blue: 0.7333333333, alpha: 1)
             
         case .upload:
             return .purple

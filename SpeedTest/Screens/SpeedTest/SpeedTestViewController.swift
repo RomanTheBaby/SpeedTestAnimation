@@ -169,6 +169,8 @@ private extension SpeedTestViewController {
         setupEmitterView()
         setupSpeedTestViews()
         setupPacketsInfoView()
+        
+        emitterView.iconImageView.isHidden = true
     }
     
     func setupGradientView() {

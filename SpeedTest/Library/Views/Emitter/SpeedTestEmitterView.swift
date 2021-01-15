@@ -43,7 +43,7 @@ class SpeedTestEmitterView: EmitterView {
         return resultLabel
     }()
     
-    private lazy var iconImageView: UIImageView = {
+    private(set) lazy var iconImageView: UIImageView = {
         let imageView = ShadowImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = #colorLiteral(red: 0.1568546593, green: 0.2311310172, blue: 0.2770749331, alpha: 1)
@@ -108,7 +108,7 @@ class SpeedTestEmitterView: EmitterView {
         iconImageView.image = testType.image
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
-            self?.currentSpeed = self?.currentSpeed ?? 0 + Double.random(in: 0..<4)
+            self?.currentSpeed = (self?.currentSpeed ?? 0) + Double.random(in: 0..<4)
         }
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [self] in
