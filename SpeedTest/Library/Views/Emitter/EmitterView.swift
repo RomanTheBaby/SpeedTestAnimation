@@ -52,7 +52,7 @@ class EmitterView: UIView {
         
         emitters.values.forEach { emitterLayer in
             emitterLayer.startEmission()
-            layer.addSublayer(emitterLayer)
+            layer.insertSublayer(emitterLayer, at: 0)
         }
     }
     
@@ -64,14 +64,14 @@ class EmitterView: UIView {
             switch source {
             case .center:
                 if centerEmissionsEnabled {
-                    layer.addSublayer(emitterLayer)
+                    layer.insertSublayer(emitterLayer, at: 0)
                 } else {
                     emitterLayer.removeFromSuperlayer()
                 }
                 
             default:
                 if sideEmissionsEnabled {
-                    layer.addSublayer(emitterLayer)
+                    layer.insertSublayer(emitterLayer, at: 0)
                 } else {
                     emitterLayer.removeFromSuperlayer()
                 }

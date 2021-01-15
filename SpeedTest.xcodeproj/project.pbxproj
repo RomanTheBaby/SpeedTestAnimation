@@ -24,6 +24,7 @@
 		A3BF40A025B0D90C005EE01F /* SpeedTestEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */; };
 		A3BF40D725B0ECFD005EE01F /* SpeedTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */; };
 		A3BF40DB25B0F45D005EE01F /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40DA25B0F45D005EE01F /* ChartView.swift */; };
+		A3BF40E025B10F63005EE01F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */; };
 		A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FC443E25AD169D0006F61A /* Colors.xcassets */; };
 		A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444225AD1A300006F61A /* UIImage+Extension.swift */; };
 		A3FC444725AD1D8F0006F61A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444625AD1D8F0006F61A /* RoundedButton.swift */; };
@@ -53,6 +54,7 @@
 		A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestEmitterView.swift; sourceTree = "<group>"; };
 		A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestType.swift; sourceTree = "<group>"; };
 		A3BF40DA25B0F45D005EE01F /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A3FC443E25AD169D0006F61A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A3FC444225AD1A300006F61A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		A3FC444625AD1D8F0006F61A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				A361AE0025AD141D004C7BED /* UIView+Extension.swift */,
 				A3FC444225AD1A300006F61A /* UIImage+Extension.swift */,
+				A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */,
+				A3BF40E025B10F63005EE01F /* UIColor+Extension.swift in Sources */,
 				A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */,
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,

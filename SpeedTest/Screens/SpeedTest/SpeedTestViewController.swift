@@ -33,6 +33,7 @@ final class SpeedTestViewController: UIViewController {
                 chartView.isHidden = true
                 chartView.removeCharts()
                 emitterView.isHidden = false
+                emitterView.currentSpeed = nil
                 
                 UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
                     showPacketsInfoView(false)

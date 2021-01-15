@@ -63,9 +63,6 @@ class GradientView: UIView {
 }
 
 
-//20, 34, 44
-// 16, 29, 37
-//48 68 81
 private extension UIColor {
     class var gradientTop: UIColor {
         #colorLiteral(red: 0.1882352941, green: 0.2666666667, blue: 0.3176470588, alpha: 1)

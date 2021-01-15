@@ -22,19 +22,21 @@ class ChartView: UIView {
         
         let greenChartPath = UIBezierPath()
         greenChartPath.move(to: CGPoint(x: 25, y: bounds.maxY))
-        greenChartPath.addQuadCurve(to: CGPoint(x: 80, y: bounds.maxY - 30), controlPoint: CGPoint(x: 50, y: bounds.maxY - 30))
-        greenChartPath.addQuadCurve(to: CGPoint(x: 200, y: bounds.maxY - 50), controlPoint: CGPoint(x: 100, y: bounds.maxY - 40))
+        greenChartPath.addQuadCurve(to: CGPoint(x: 80, y: bounds.maxY - 30),
+                                    controlPoint: CGPoint(x: 50, y: bounds.maxY - 30))
+        greenChartPath.addQuadCurve(to: CGPoint(x: 200, y: bounds.maxY - 50),
+                                    controlPoint: CGPoint(x: 100, y: bounds.maxY - 40))
         greenChartPath.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY - 40))
-        greenChartPath.stroke()
         
         drawChart(path: greenChartPath, strokeColor: .green)
         
         let blue = UIBezierPath()
         blue.move(to: CGPoint(x: 25, y: bounds.maxY))
-        blue.addQuadCurve(to: CGPoint(x: 80, y: bounds.maxY - 100), controlPoint: CGPoint(x: 80, y: bounds.maxY - 200))
-        blue.addQuadCurve(to: CGPoint(x: 200, y: bounds.maxY - 90), controlPoint: CGPoint(x: 100, y: bounds.maxY - 250))
+        blue.addQuadCurve(to: CGPoint(x: 80, y: bounds.maxY - 100),
+                          controlPoint: CGPoint(x: 80, y: bounds.maxY - 200))
+        blue.addQuadCurve(to: CGPoint(x: 200, y: bounds.maxY - 90),
+                          controlPoint: CGPoint(x: 100, y: bounds.maxY - 250))
         blue.addLine(to: CGPoint(x: bounds.maxX, y: bounds.midY))
-        blue.stroke()
         
         drawChart(path: blue, strokeColor: .blue)
     }
@@ -45,7 +47,10 @@ class ChartView: UIView {
         }
     }
     
-    func drawChart(path: UIBezierPath, strokeColor: UIColor) {
+    
+    // MARK: - Helpers
+    
+    private func drawChart(path: UIBezierPath, strokeColor: UIColor) {
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         shapeLayer.strokeColor = strokeColor.cgColor
@@ -72,9 +77,6 @@ class ChartView: UIView {
 //        layer.addSublayer(gradient)
     }
     
-    
-    // MARK: - Helpers
-    
     private func makeChart(from chartPath: UIBezierPath, primaryColor: UIColor) {
         let shapeLayer = CAShapeLayer()
 
@@ -93,11 +95,8 @@ class ChartView: UIView {
         layer.addSublayer(gradient)
     }
     
-    struct DataPoint {
-        var pos: CGPoint
-        var label: String
-        
-    }
+    
+    // MARK: - UIViewRendering
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)

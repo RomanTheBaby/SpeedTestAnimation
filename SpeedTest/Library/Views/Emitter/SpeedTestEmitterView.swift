@@ -14,14 +14,17 @@ class SpeedTestEmitterView: EmitterView {
     
     // MARK: - Public Properties
     
-    
-    var currentSpeed: Double = 0 {
+    var currentSpeed: Double? {
         didSet {
             UIView.transition(with: resultLabel,
                               duration: 0.5,
                               options: .transitionCrossDissolve,
                               animations: { [self] in
-                                resultLabel.text = String(format: "%.2f", currentSpeed)
+                                if let currentSpeed = currentSpeed {
+                                    resultLabel.text = String(format: "%.2f", currentSpeed)
+                                } else {
+                                    resultLabel.text = "-"
+                                }
                               })
         }
     }
@@ -41,9 +44,11 @@ class SpeedTestEmitterView: EmitterView {
     }()
     
     private lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = ShadowImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
+        imageView.backgroundColor = #colorLiteral(red: 0.1568546593, green: 0.2311310172, blue: 0.2770749331, alpha: 1)
+        imageView.layer.zPosition = 1
+
         return imageView
     }()
 
@@ -82,9 +87,13 @@ class SpeedTestEmitterView: EmitterView {
     
     private func setupIconImageView() {
         addSubview(iconImageView)
+        bringSubviewToFront(iconImageView)
+        
         NSLayoutConstraint.activate([
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            iconImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor)
         ])
     }
     
@@ -93,12 +102,13 @@ class SpeedTestEmitterView: EmitterView {
     
     func simulateTest(_ testType: SpeedTestType) {
         stopTestSimulation()
-        
-        iconImageView.image = testType.image
+
+        iconImageView.isHidden = false
         iconImageView.tintColor = testType.imageTintColor
+        iconImageView.image = testType.image
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
-            self?.currentSpeed += Double.random(in: 0..<4)
+            self?.currentSpeed = self?.currentSpeed ?? 0 + Double.random(in: 0..<4)
         }
         
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveEaseIn) { [self] in
@@ -109,6 +119,7 @@ class SpeedTestEmitterView: EmitterView {
     func stopTestSimulation(resetPosition: Bool = true) {
         timer?.invalidate()
         
+        iconImageView.isHidden = true
         iconImageView.image = nil
         
         guard resetPosition else { return }
@@ -143,5 +154,29 @@ class SpeedTestEmitterView: EmitterView {
                 }
             }
         }
+    }
+}
+
+
+private class ShadowImageView: UIImageView {
+    override var image: UIImage? {
+        didSet {
+            layer.shadowColor = tintColor.cgColor
+            layer.shadowOpacity = 1
+            layer.shadowRadius = 10.0
+            clipsToBounds = false
+        }
+    }
+    
+    override var tintColor: UIColor! {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.cornerRadius = bounds.height / 2
     }
 }
