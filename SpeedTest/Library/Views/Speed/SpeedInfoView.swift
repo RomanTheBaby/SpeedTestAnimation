@@ -11,23 +11,19 @@ import UIKit
 final class SpeedInfoView: UIView, NibInstantiatable {
     
     
-    // MARK: - SpeedType
-    
-    enum SpeedType {
-        case download
-        case upload
-    }
-    
-    
     // MARK: - Public Properties
     
-    var speedType: SpeedType = .download {
+    var speedType: SpeedTestType = .download {
         didSet {
             updateInterface()
         }
     }
     
-    var speed: Double?
+    var speed: Double? {
+        didSet {
+            updateSpeedLabel()
+        }
+    }
     
     
     // MARK: - Outlets
@@ -44,45 +40,21 @@ final class SpeedInfoView: UIView, NibInstantiatable {
         typeImageView.tintColor = speedType.imageTintColor
         typeLabel.text = speedType.title
         
-        if let speed = speed {
-            speedLabel.text = "\(speed)"
-        } else {
-            speedLabel.text = "-"
-        }
-        
+        updateSpeedLabel()
+    }
+    
+    private func updateSpeedLabel() {
+        UIView.transition(with: speedLabel,
+                          duration: 0.25,
+                          options: .transitionFlipFromTop,
+                          animations: { [self] in
+                            if let speed = speed {
+                                speedLabel.text = "\(speed)"
+                            } else {
+                                speedLabel.text = "-"
+                            }
+                          })
     }
     
 }
 
-private extension SpeedInfoView.SpeedType {
-    var image: UIImage {
-        switch self {
-        case .download:
-            return UIImage(systemName: "arrow.down.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))!
-            
-        case .upload:
-            return UIImage(systemName: "arrow.up.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))!
-        }
-        
-    }
-    
-    var imageTintColor: UIColor {
-        switch self {
-        case .download:
-            return .green
-            
-        case .upload:
-            return .purple
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .download:
-            return "DOWNLOAD"
-            
-        case .upload:
-            return "UPLOAD"
-        }
-    }
-}

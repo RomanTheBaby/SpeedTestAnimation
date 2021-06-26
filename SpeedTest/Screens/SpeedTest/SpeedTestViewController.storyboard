@@ -34,8 +34,34 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-44-fBw" customClass="RoundedButton" customModule="SpeedTest" customModuleProvider="target">
-                                <rect key="frame" x="138.5" y="637.5" width="137" height="136.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KK9-XC-aqs">
+                                <rect key="frame" x="24" y="80.5" width="366" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Ping 5ms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhD-C0-ELq">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Jitter 3.2ms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMR-GE-A6z">
+                                        <rect key="frame" x="123.5" y="0.0" width="119" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Loss 0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPQ-xp-B8W">
+                                        <rect key="frame" x="246.5" y="0.0" width="119.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.74509803919999995" green="0.77647058820000003" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="vki-yP-FVa"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-44-fBw" customClass="StartTestButton" customModule="SpeedTest" customModuleProvider="target">
+                                <rect key="frame" x="145" y="650" width="124" height="124"/>
                                 <color key="backgroundColor" red="0.12941176470588234" green="0.20810529589999999" blue="0.26575750110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fS1-44-fBw" secondAttribute="height" multiplier="1:1" id="fUm-uA-xp6"/>
@@ -44,6 +70,9 @@
                                 <state key="normal" title="START">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="START"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="HJD-TB-yIJ">
                                 <rect key="frame" x="91" y="814" width="232" height="40"/>
@@ -68,30 +97,38 @@
                                     <constraint firstAttribute="height" constant="40" id="6E7-U0-7rw"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-fA-vTV">
-                                <rect key="frame" x="99.5" y="456" width="215" height="145.5"/>
-                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-jN-gC8" customClass="ChartView" customModule="SpeedTest" customModuleProvider="target">
+                                <rect key="frame" x="24" y="186" width="366" height="172"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="sba-QO-wdM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ECX-Fh-HnI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EgN-fA-vTV" firstAttribute="centerX" secondItem="fS1-44-fBw" secondAttribute="centerX" id="DaV-Ik-cTO"/>
+                            <constraint firstItem="5IP-jN-gC8" firstAttribute="leading" secondItem="ECX-Fh-HnI" secondAttribute="leading" constant="24" id="5Mf-Kb-Guu"/>
+                            <constraint firstItem="ECX-Fh-HnI" firstAttribute="trailing" secondItem="5IP-jN-gC8" secondAttribute="trailing" constant="24" id="8aP-ks-IX0"/>
+                            <constraint firstItem="KK9-XC-aqs" firstAttribute="top" secondItem="k4l-9U-mwQ" secondAttribute="bottom" constant="8" id="8w3-zN-Fud"/>
+                            <constraint firstItem="ECX-Fh-HnI" firstAttribute="trailing" secondItem="KK9-XC-aqs" secondAttribute="trailing" constant="24" id="EhN-Ua-2We"/>
+                            <constraint firstItem="KK9-XC-aqs" firstAttribute="leading" secondItem="ECX-Fh-HnI" secondAttribute="leading" constant="24" id="RgI-tB-pGS"/>
                             <constraint firstItem="fS1-44-fBw" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="Tnu-sB-oTd"/>
                             <constraint firstItem="HJD-TB-yIJ" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="V8T-lA-SBI"/>
                             <constraint firstItem="k4l-9U-mwQ" firstAttribute="centerX" secondItem="ECX-Fh-HnI" secondAttribute="centerX" id="VfM-zV-S2S"/>
-                            <constraint firstItem="fS1-44-fBw" firstAttribute="width" secondItem="Lss-81-twN" secondAttribute="width" multiplier="0.33" id="ZES-KO-72v"/>
+                            <constraint firstItem="fS1-44-fBw" firstAttribute="width" secondItem="Lss-81-twN" secondAttribute="width" multiplier="0.3" id="ZES-KO-72v"/>
                             <constraint firstItem="ECX-Fh-HnI" firstAttribute="bottom" secondItem="HJD-TB-yIJ" secondAttribute="bottom" constant="8" id="a3J-KQ-UXf"/>
                             <constraint firstItem="k4l-9U-mwQ" firstAttribute="top" secondItem="ECX-Fh-HnI" secondAttribute="top" constant="8" id="daQ-oC-Fch"/>
-                            <constraint firstItem="EgN-fA-vTV" firstAttribute="width" secondItem="Lss-81-twN" secondAttribute="width" multiplier="0.52" id="iOP-Ae-MIA"/>
                             <constraint firstItem="HJD-TB-yIJ" firstAttribute="top" secondItem="fS1-44-fBw" secondAttribute="bottom" constant="40" id="iyk-fo-Uud"/>
-                            <constraint firstItem="EgN-fA-vTV" firstAttribute="top" secondItem="Lss-81-twN" secondAttribute="centerY" constant="8" id="jnW-9c-FYr"/>
-                            <constraint firstItem="fS1-44-fBw" firstAttribute="top" secondItem="EgN-fA-vTV" secondAttribute="bottom" constant="36" id="vlK-Oh-d2c"/>
+                            <constraint firstItem="5IP-jN-gC8" firstAttribute="top" secondItem="KK9-XC-aqs" secondAttribute="bottom" constant="85.5" id="y5K-Le-PWc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chartView" destination="5IP-jN-gC8" id="e2o-ho-aey"/>
                         <outlet property="checkmarkButton" destination="0yy-LM-zEq" id="TDf-E3-6uC"/>
-                        <outlet property="networkInfoStackView" destination="EgN-fA-vTV" id="zbf-be-Lcn"/>
+                        <outlet property="logoStackView" destination="k4l-9U-mwQ" id="gOt-6y-Mgx"/>
                         <outlet property="octagonButton" destination="hdn-ni-d2o" id="bS7-dn-gJz"/>
+                        <outlet property="packetsInfoStackView" destination="KK9-XC-aqs" id="Aug-LN-oSf"/>
                         <outlet property="sliderButton" destination="0W8-UU-gki" id="9FZ-m3-zGQ"/>
                         <outlet property="startTestButton" destination="fS1-44-fBw" id="REM-2I-HBR"/>
                     </connections>
@@ -101,6 +138,11 @@
             <point key="canvasLocation" x="911.59420289855075" y="-97.098214285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="fS1-44-fBw">
+            <size key="intrinsicContentSize" width="62" height="36"/>
+        </designable>
+    </designables>
     <resources>
         <image name="slider.vertical.3" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">

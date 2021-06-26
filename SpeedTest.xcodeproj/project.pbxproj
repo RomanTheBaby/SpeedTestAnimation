@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33C5D7F25B14AE7008DC1A2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C5D7E25B14AE7008DC1A2 /* AppCoordinator.swift */; };
 		A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADD025AD0FE0004C7BED /* AppDelegate.swift */; };
 		A361ADD325AD0FE0004C7BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */; };
 		A361ADDA25AD0FE0004C7BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A361ADD925AD0FE0004C7BED /* Assets.xcassets */; };
@@ -15,8 +16,17 @@
 		A361ADEC25AD103A004C7BED /* SpeedTestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */; };
 		A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361ADFB25AD1241004C7BED /* GradientView.swift */; };
 		A361AE0125AD141D004C7BED /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A361AE0025AD141D004C7BED /* UIView+Extension.swift */; };
+		A364105325AFC16D004B8559 /* EmitterLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364105225AFC16D004B8559 /* EmitterLayer.swift */; };
+		A364105C25AFCC19004B8559 /* StartTestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364105B25AFCC19004B8559 /* StartTestButton.swift */; };
+		A364106025AFD68A004B8559 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364105F25AFD68A004B8559 /* RoundedView.swift */; };
+		A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A20C8A25AE7A9400624698 /* EmitterView.swift */; };
 		A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */; };
 		A3BC703F25AE5DE100F1E612 /* SpeedInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */; };
+		A3BF40A025B0D90C005EE01F /* SpeedTestEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */; };
+		A3BF40D725B0ECFD005EE01F /* SpeedTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */; };
+		A3BF40DB25B0F45D005EE01F /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40DA25B0F45D005EE01F /* ChartView.swift */; };
+		A3BF40E025B10F63005EE01F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */; };
+		A3BF40E525B14450005EE01F /* SpeedTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF40E425B14450005EE01F /* SpeedTestService.swift */; };
 		A3FC443F25AD169D0006F61A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3FC443E25AD169D0006F61A /* Colors.xcassets */; };
 		A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444225AD1A300006F61A /* UIImage+Extension.swift */; };
 		A3FC444725AD1D8F0006F61A /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC444625AD1D8F0006F61A /* RoundedButton.swift */; };
@@ -27,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A33C5D7E25B14AE7008DC1A2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A361ADCD25AD0FE0004C7BED /* SpeedTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A361ADD025AD0FE0004C7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,8 +48,17 @@
 		A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedTestViewController.storyboard; sourceTree = "<group>"; };
 		A361ADFB25AD1241004C7BED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		A361AE0025AD141D004C7BED /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A364105225AFC16D004B8559 /* EmitterLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterLayer.swift; sourceTree = "<group>"; };
+		A364105B25AFCC19004B8559 /* StartTestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTestButton.swift; sourceTree = "<group>"; };
+		A364105F25AFD68A004B8559 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		A3A20C8A25AE7A9400624698 /* EmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitterView.swift; sourceTree = "<group>"; };
 		A3BC703B25AE5D4500F1E612 /* SpeedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedInfoView.swift; sourceTree = "<group>"; };
 		A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedInfoView.xib; sourceTree = "<group>"; };
+		A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestEmitterView.swift; sourceTree = "<group>"; };
+		A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTestType.swift; sourceTree = "<group>"; };
+		A3BF40DA25B0F45D005EE01F /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A3BF40E425B14450005EE01F /* SpeedTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestService.swift; sourceTree = "<group>"; };
 		A3FC443E25AD169D0006F61A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A3FC444225AD1A300006F61A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		A3FC444625AD1D8F0006F61A /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -97,6 +117,7 @@
 		A361ADEA25AD102A004C7BED /* SpeedTest */ = {
 			isa = PBXGroup;
 			children = (
+				A364105925AFCC08004B8559 /* Views */,
 				A361ADEB25AD103A004C7BED /* SpeedTestViewController.storyboard */,
 				A361ADE625AD1026004C7BED /* SpeedTestViewController.swift */,
 			);
@@ -110,6 +131,7 @@
 				A3FC444D25AD282E0006F61A /* Models */,
 				A3FC445525AD49960006F61A /* Protocols */,
 				A361ADF325AD1092004C7BED /* Resources */,
+				A3BF40E925B1488B005EE01F /* Services */,
 				A361ADF925AD1230004C7BED /* Views */,
 			);
 			path = Library;
@@ -120,6 +142,7 @@
 			children = (
 				A361AE0025AD141D004C7BED /* UIView+Extension.swift */,
 				A3FC444225AD1A300006F61A /* UIImage+Extension.swift */,
+				A3BF40DF25B10F63005EE01F /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +150,7 @@
 		A361ADF125AD106D004C7BED /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A33C5D7E25B14AE7008DC1A2 /* AppCoordinator.swift */,
 				A361ADD025AD0FE0004C7BED /* AppDelegate.swift */,
 				A361ADD225AD0FE0004C7BED /* SceneDelegate.swift */,
 			);
@@ -154,10 +178,13 @@
 		A361ADF925AD1230004C7BED /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A3BC703925AE5CF800F1E612 /* Speed */,
+				A3BF40D925B0F450005EE01F /* Chart */,
+				A364105E25AFD683004B8559 /* Rounded */,
+				A3A20C8925AE7A8900624698 /* Emitter */,
 				A361ADFA25AD1236004C7BED /* Gradient */,
 				A3FC444925AD265D0006F61A /* Network Info */,
 				A3FC444525AD1D850006F61A /* Rounded Button */,
+				A3BC703925AE5CF800F1E612 /* Speed */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +197,48 @@
 			path = Gradient;
 			sourceTree = "<group>";
 		};
+		A364105925AFCC08004B8559 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A364105A25AFCC0C004B8559 /* Start Test Button */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A364105A25AFCC0C004B8559 /* Start Test Button */ = {
+			isa = PBXGroup;
+			children = (
+				A364105B25AFCC19004B8559 /* StartTestButton.swift */,
+			);
+			path = "Start Test Button";
+			sourceTree = "<group>";
+		};
+		A364105E25AFD683004B8559 /* Rounded */ = {
+			isa = PBXGroup;
+			children = (
+				A364105F25AFD68A004B8559 /* RoundedView.swift */,
+			);
+			path = Rounded;
+			sourceTree = "<group>";
+		};
+		A3A20C8925AE7A8900624698 /* Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				A3A20C9225AE949200624698 /* Layers */,
+				A3A20C8A25AE7A9400624698 /* EmitterView.swift */,
+				A3BF409F25B0D90C005EE01F /* SpeedTestEmitterView.swift */,
+			);
+			path = Emitter;
+			sourceTree = "<group>";
+		};
+		A3A20C9225AE949200624698 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				A364105225AFC16D004B8559 /* EmitterLayer.swift */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
 		A3BC703925AE5CF800F1E612 /* Speed */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +246,38 @@
 				A3BC703E25AE5DE100F1E612 /* SpeedInfoView.xib */,
 			);
 			path = Speed;
+			sourceTree = "<group>";
+		};
+		A3BF40D125B0EC94005EE01F /* SpeedTestType */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF40D625B0ECFD005EE01F /* SpeedTestType.swift */,
+			);
+			path = SpeedTestType;
+			sourceTree = "<group>";
+		};
+		A3BF40D325B0EC9F005EE01F /* NetworkInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A3FC444E25AD28450006F61A /* NetworkInfo.swift */,
+			);
+			path = NetworkInfo;
+			sourceTree = "<group>";
+		};
+		A3BF40D925B0F450005EE01F /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF40DA25B0F45D005EE01F /* ChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		A3BF40E925B1488B005EE01F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A3BF40E425B14450005EE01F /* SpeedTestService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A3FC444525AD1D850006F61A /* Rounded Button */ = {
@@ -199,7 +300,8 @@
 		A3FC444D25AD282E0006F61A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A3FC444E25AD28450006F61A /* NetworkInfo.swift */,
+				A3BF40D325B0EC9F005EE01F /* NetworkInfo */,
+				A3BF40D125B0EC94005EE01F /* SpeedTestType */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,10 +388,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3BC703C25AE5D4500F1E612 /* SpeedInfoView.swift in Sources */,
+				A3BF40E025B10F63005EE01F /* UIColor+Extension.swift in Sources */,
+				A3A20C8B25AE7A9400624698 /* EmitterView.swift in Sources */,
 				A361ADE725AD1026004C7BED /* SpeedTestViewController.swift in Sources */,
 				A361ADD125AD0FE0004C7BED /* AppDelegate.swift in Sources */,
+				A3BF40E525B14450005EE01F /* SpeedTestService.swift in Sources */,
+				A33C5D7F25B14AE7008DC1A2 /* AppCoordinator.swift in Sources */,
+				A364105C25AFCC19004B8559 /* StartTestButton.swift in Sources */,
+				A3BF40DB25B0F45D005EE01F /* ChartView.swift in Sources */,
+				A3BF40A025B0D90C005EE01F /* SpeedTestEmitterView.swift in Sources */,
+				A364105325AFC16D004B8559 /* EmitterLayer.swift in Sources */,
+				A3BF40D725B0ECFD005EE01F /* SpeedTestType.swift in Sources */,
 				A3FC445C25AD49B20006F61A /* NibInstantiatable.swift in Sources */,
 				A3FC444F25AD28450006F61A /* NetworkInfo.swift in Sources */,
+				A364106025AFD68A004B8559 /* RoundedView.swift in Sources */,
 				A3FC445325AD292D0006F61A /* NetworkInfoView.swift in Sources */,
 				A361ADFC25AD1241004C7BED /* GradientView.swift in Sources */,
 				A3FC444325AD1A300006F61A /* UIImage+Extension.swift in Sources */,
