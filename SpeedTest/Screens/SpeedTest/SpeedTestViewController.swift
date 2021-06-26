@@ -34,6 +34,8 @@ final class SpeedTestViewController: UIViewController {
                 chartView.removeCharts()
                 emitterView.isHidden = false
                 emitterView.currentSpeed = nil
+                uploadSpeedView.speed = nil
+                downloadSpeedView.speed = nil
                 
                 UIViewPropertyAnimator(duration: 0.5, curve: .easeIn) { [self] in
                     showPacketsInfoView(false)
@@ -169,6 +171,8 @@ private extension SpeedTestViewController {
         setupEmitterView()
         setupSpeedTestViews()
         setupPacketsInfoView()
+        
+        emitterView.iconImageView.isHidden = true
     }
     
     func setupGradientView() {
